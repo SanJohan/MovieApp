@@ -48,8 +48,6 @@ function Home() {
     
   };
 
-  console.log(error);
-  console.log(loading);
 
   return (
     <>

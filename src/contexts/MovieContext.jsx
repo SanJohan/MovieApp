@@ -4,16 +4,14 @@ import { MovieContext } from '../hooks/useMovies';
 
 
 export const MovieProvider = ({children}) => {
-  const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
+  const [favorites, setFavorites] = useState(() => {
     const storedFavs = localStorage.getItem('favorites');
-    if(storedFavs) setFavorites(JSON.parse(storedFavs));
-  }, []);
+    return storedFavs ? JSON.parse(storedFavs) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
-    
+    console.log('Saved favorites to localStorage:', favorites);
   }, [favorites]);
 
   const addToFavorites = (movie) => {

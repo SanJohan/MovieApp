@@ -4,6 +4,9 @@ import Favorites from './pages/Favorites'
 import {Routes, Route} from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
 import { MovieProvider } from './contexts/MovieContext.jsx'
+import MovieDetails from './pages/MovieDetails.jsx'
+
+
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -16,6 +19,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/favorites' element={<Favorites />} />
+              <Route path='/movie/:id' element={<MovieDetails />} />
             </Routes>
           </main>
       </>

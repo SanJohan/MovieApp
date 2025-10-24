@@ -5,7 +5,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--background-dark);
+  --primary: #007BFF;
+  --background-light: #f6f6f8;
+  --background-dark: #121212;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -39,7 +42,7 @@ body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary);
   text-decoration: inherit;
 }
 a:hover {

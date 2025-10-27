@@ -52,16 +52,17 @@ function Home() {
     <>
       <div className="home">
         <form onSubmit={handleSearch} className="search-form">
-          <input
-            type="text"
-            placeholder="Search for a movie..."
-            className="search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="search-button">
-            Search
-          </button>
+          <div class = "search-bar">
+            <span class="material-symbols-outlined">search</span>
+            <input
+              type="text"
+              placeholder="Search for a movie..."
+              className="search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          
         </form>
 
         {error && <div className="error">{error}</div>}

@@ -83,13 +83,14 @@ function MovieDetails() {
 
       
       <main>
-        <section>
+        <section className='cast-crew-section'>
           <h3>Cast and Crew</h3>
           <ul className='cast-crew-list'>
             {credits && credits.map(member => (
               <li key={member.cast_id || member.credit_id}>
                 <img src={member.profile_path ? `https://image.tmdb.org/t/p/w500${member.profile_path}` : '/no-image.png'} alt="" />
-                <p>{member.name} as {member.character || member.job}</p>
+                <p>{member.name}</p>
+                <p>{member.character || member.job}</p>
               </li>
             ))}
           </ul>

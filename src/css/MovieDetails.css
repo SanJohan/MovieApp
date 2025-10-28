@@ -40,11 +40,23 @@ main {
 }
 
 
+.cast-crew-section{
+  width: 60vw;
+}
+
 .cast-crew-list{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
   padding: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.cast-crew-list li{
+  list-style-type: none;
+  scroll-snap-align: center;
 }
 
 .cast-crew-list img{

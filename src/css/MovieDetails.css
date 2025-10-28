@@ -32,3 +32,26 @@
 }
 
 
+main {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.cast-crew-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cast-crew-list img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

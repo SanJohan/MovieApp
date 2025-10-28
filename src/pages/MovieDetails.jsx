@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovie, getMovieCredits } from '../services/api.js';
 import { useMovieContext } from '../hooks/useMovies.jsx';
+import '../css/MovieDetails.css';
 
 
 function MovieDetails() {
@@ -56,23 +57,27 @@ function MovieDetails() {
 
   return (
     <>
-      <header>
-        <div>
+      <header className="movie-header-details">
+        <div className ="movie-poster-details">
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`Poster of ${movie.title}`} />
-          <h1>{movie.title}</h1>
-          <p>{movie.release_date} | {movie.runtime} minutes | {movie.genres.map(genre => genre.name).join('/')}</p>
+          <div className="movie-description">
+            <div>
+              <h1 >{movie.title}</h1>
+              <p>{movie.release_date} | {movie.runtime} minutes | {movie.genres.map(genre => genre.name).join('/')}</p>
+            </div>
+            <section>
+              <h3>Synopsis</h3>
+              <p>{movie.overview}</p>
+            </section>
+            <div>
+              <button onClick={onClickFavorites}>{isFavorite(movie.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+            </div>
+          </div>
         </div>
       </header>
 
-      <div>
-        <button onClick={onClickFavorites}>{isFavorite(movie.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
-      </div>
-
+      
       <main>
-        <section>
-          <h3>Synopsis</h3>
-          <p>{movie.overview}</p>
-        </section>
         <section>
           <h3>Rates and Reviews</h3>
           <p>Average Vote: {movie.vote_average} ({movie.vote_count} votes)</p>

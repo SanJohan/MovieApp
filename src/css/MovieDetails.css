@@ -10,10 +10,9 @@
   grid-template-columns: 1fr 1fr;
   grid-gap:auto;
   max-width: 1100px;
-  
   border-radius: 10px;
   overflow: hidden;
-  background-color: green;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   
 }
 
@@ -25,7 +24,7 @@
 }
 
 .movie-description{
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;

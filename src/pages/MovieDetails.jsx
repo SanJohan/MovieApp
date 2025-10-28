@@ -69,6 +69,11 @@ function MovieDetails() {
               <h3>Synopsis</h3>
               <p>{movie.overview}</p>
             </section>
+            <section>
+              <h3>Rates and Reviews</h3>
+              <p>Average Vote: {movie.vote_average} ({movie.vote_count} votes)</p>
+              <p>Popularity: {movie.popularity}</p>
+            </section>
             <div>
               <button onClick={onClickFavorites}>{isFavorite(movie.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
             </div>
@@ -78,11 +83,6 @@ function MovieDetails() {
 
       
       <main>
-        <section>
-          <h3>Rates and Reviews</h3>
-          <p>Average Vote: {movie.vote_average} ({movie.vote_count} votes)</p>
-          <p>Popularity: {movie.popularity}</p>
-        </section>
         <section>
           <h3>Cast and Crew</h3>
           <ul>

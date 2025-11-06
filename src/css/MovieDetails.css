@@ -41,29 +41,125 @@ main {
 
 
 .cast-crew-section{
+  margin-top: 2rem;
   width: 60vw;
+
+}
+
+.cast-crew-section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
 }
 
 .cast-crew-list{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 20px;
+  gap: 30px;
+  padding: 10px 40px; 
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;  
 }
 
-.cast-crew-list li{
+.cast-crew-list::-webkit-scrollbar {
+  height: 8px;
+}
+.cast-crew-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+.cast-crew-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+.cast-crew-list li {
   list-style-type: none;
-  scroll-snap-align: center;
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, #1e1e1e, #0f0f0f);
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  scroll-snap-align: start;
 }
 
-.cast-crew-list img{
-  display: flex;
-  justify-content: center;
+.cast-crew-list li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* 🖼 Imagen */
+.cast-crew-list img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 👤 Nombre y rol */
+.cast-crew-list p {
+  margin: 6px 0;
+  text-align: center;
+}
+
+.cast-crew-list p:first-of-type {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f5f5f5;
+}
+
+.cast-crew-list p:last-of-type {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+
+.favorite-button {
+  display: inline-flex;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #ff4757, #ff6b81);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+  user-select: none;
+}
+
+.favorite-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.5);
+}
+
+.heart-button {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.heart-button.active {
+  color: #fff;
+  transform: scale(1.3);
+}
+
+.fav-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.favorite-button:active {
+  transform: scale(0.95);
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getMovie, getMovieCredits } from '../services/api.js';
 import { useMovieContext } from '../hooks/useMovies.jsx';
 import '../css/MovieDetails.css';
+import defaultPicture from '../assets/default-picture.webp';
 
 
 function MovieDetails() {
@@ -74,8 +75,13 @@ function MovieDetails() {
               <p>Average Vote: {movie.vote_average} ({movie.vote_count} votes)</p>
               <p>Popularity: {movie.popularity}</p>
             </section>
-            <div>
-              <button onClick={onClickFavorites}>{isFavorite(movie.id) ? 'Remove from Favorites' : 'Add to Favorites'}</button>
+            <div className="favorite-button" onClick={onClickFavorites}>
+              <span className={`heart-button ${isFavorite(movie.id) ? 'active' : ''}`}>
+                ❤
+              </span>
+              <span className="fav-text">
+                {isFavorite(movie.id) ? 'Added to Favorites' : 'Add to Favorites'}
+              </span>
             </div>
           </div>
         </div>
@@ -87,8 +93,9 @@ function MovieDetails() {
           <h3>Cast and Crew</h3>
           <ul className='cast-crew-list'>
             {credits && credits.map(member => (
+              console.log(`https://image.tmdb.org/t/p/w500${member.profile_path}`),
               <li key={member.cast_id || member.credit_id}>
-                <img src={member.profile_path ? `https://image.tmdb.org/t/p/w500${member.profile_path}` : '/no-image.png'} alt="" />
+                <img src={member.profile_path ? `https://image.tmdb.org/t/p/w500${member.profile_path}` : defaultPicture} alt="cast and crew image" />
                 <p>{member.name}</p>
                 <p>{member.character || member.job}</p>
               </li>

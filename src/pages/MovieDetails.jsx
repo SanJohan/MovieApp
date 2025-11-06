@@ -62,19 +62,38 @@ function MovieDetails() {
         <div className ="movie-poster-details">
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`Poster of ${movie.title}`} />
           <div className="movie-description">
-            <div>
+            {/* <div>
               <h1 >{movie.title}</h1>
               <p>{movie.release_date} | {movie.runtime} minutes | {movie.genres.map(genre => genre.name).join('/')}</p>
+            </div> */}
+            <div className="movie-header-text">
+              <h1>{movie.title}</h1>
+              <p className="movie-meta">
+                {movie.release_date?.slice(0, 4)} • {movie.runtime} min • {movie.genres.map(genre => genre.name).join(', ')}
+              </p>
             </div>
-            <section>
+            {/* <section>
               <h3>Synopsis</h3>
               <p>{movie.overview}</p>
+            </section> */}
+            <section className="movie-synopsis">
+              <h3>Synopsis</h3>
+              <p>{movie.overview || "No synopsis available."}</p>
             </section>
-            <section>
+            {/* <section>
               <h3>Rates and Reviews</h3>
               <p>Average Vote: {movie.vote_average} ({movie.vote_count} votes)</p>
               <p>Popularity: {movie.popularity}</p>
-            </section>
+            </section> */}
+            <section className="movie-ratings">
+            <h3>Ratings & Reviews</h3>
+            <div className="rating-box">
+              <span className="star">⭐</span>
+              <span className="avg-vote">{movie.vote_average?.toFixed(1)}</span>
+              <span className="vote-count">({movie.vote_count} votes)</span>
+            </div>
+            <p className="popularity">🔥 Popularity: {Math.round(movie.popularity)}</p>
+          </section>
             <div className="favorite-button" onClick={onClickFavorites}>
               <span className={`heart-button ${isFavorite(movie.id) ? 'active' : ''}`}>
                 ❤

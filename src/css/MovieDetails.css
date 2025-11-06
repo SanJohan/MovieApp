@@ -163,3 +163,61 @@ main {
 .favorite-button:active {
   transform: scale(0.95);
 }
+
+
+
+.movie-description {
+  padding: 1rem 2rem;
+  color: #f1f1f1;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.movie-header-text h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.movie-meta {
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.movie-synopsis h3,
+.movie-ratings h3 {
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+.movie-synopsis p {
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.movie-ratings {
+  margin-bottom: 1.5rem;
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.star {
+  color: #ffd700;
+}
+
+.vote-count {
+  color: #aaa;
+}
+
+.popularity {
+  color: #999;
+  font-size: 0.9rem;
+}
